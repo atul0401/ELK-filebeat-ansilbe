@@ -4,8 +4,8 @@
   become_user: root
   roles:
   - { role: java }
-  - { role: ElasticSearch }
-  - { role: Kibana }
-  - { role: Logstash }
-  - { role: Filebeat }
+  - { role: elasticSearch }
+  - { role: kibana }
+  - { role: logstash }
+  - { role: filebeat }
 
