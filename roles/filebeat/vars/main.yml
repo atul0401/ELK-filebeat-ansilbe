@@ -1,2 +1,12 @@
 ---
 # vars file for Filebeat
+
+#variables for filebeat input 
+
+input_type: log
+input_conf: true
+log_path: /home/ubuntu/data/logs/logs
+
+#variables for filebeat output configuration
+logstash_ip: 13.233.253.122
+logstash_port: 5044

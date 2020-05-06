@@ -1,2 +1,14 @@
 ---
-# vars file for Logstash
+# vars file for Logstash 
+
+#variables for Logstash Installation
+
+apt_key_url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch" 
+apt_repo_url: "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
+
+
+#varibles for Logstash configuration
+input_port: 5044
+es_host_url: http://13.233.253.122:9200
+es_config_path: /etc/logstash/logstash.conf
+

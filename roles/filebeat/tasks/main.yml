@@ -12,9 +12,9 @@
    name: filebeat
    update_cache: yes
 
-- name: Create filebeat config
+- name: Updating filebeat config
   template:
-    src:  files/filebeat.yml  
+    src:  filebeat.yml.j2
     dest: /etc/filebeat/filebeat.yml
 
 

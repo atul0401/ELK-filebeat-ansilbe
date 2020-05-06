@@ -3,12 +3,12 @@
 #
 - name: Add Logstash GPG key.
   apt_key:
-    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch 
+    url: "{{ apt_key_url }}"
     state: present
 
 - name: Add Logstash apt repository.
   apt_repository:
-    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+    repo: "{{ apt_repo_url }}"
     state: present
 
 
@@ -20,12 +20,12 @@
 
 
 - name: Updating Logstash configuration
-  copy:
-     src: "{{ item }}"
-     dest: /etc/logstash/
+  template:
+     src: "{{ item.src }}"
+     dest: "{{ item.dest }}"
   with_items:
-      - files/logstash.conf
-      - files/logstash.yml
+      - { src: 'templates/logstash.conf.j2', dest: '/etc/logstash/logstash.conf' }
+      - { src: 'templates/logstash.yml.j2', dest: '/etc/logstash/logstash.yml' }
      
 
 - name: Starting Logstash

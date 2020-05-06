@@ -1,2 +1,4 @@
 ---
 # vars file for java
+# Replace with the required java version
+java_package: openjdk-8-jdk

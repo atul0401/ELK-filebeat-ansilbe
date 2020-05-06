@@ -1,2 +1,6 @@
 ---
 # vars file for Kibana
+
+server_port: 5601
+server_host: 0.0.0.0
+es_host_url: http://13.233.253.122:9200

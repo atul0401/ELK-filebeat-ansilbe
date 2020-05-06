@@ -6,14 +6,14 @@
 
 - name: Add Elasticsearch apt key
   apt_key:
-   url: "https://packages.elastic.co/GPG-KEY-elasticsearch"
+   url: "{{ es_apt_key }}"
    state: present
 
 # Add the Elasticsearch apt repo. of version 7
 
 - name: Adding Elasticsearch repo
   apt_repository:
-   repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+   repo: "{{ es_repo_url }}"
    state: present
 
 # Installing Elasticsearch
@@ -26,10 +26,9 @@
 # Copy ElasticSearch configuration file to Elastic search serverless
 
 - name: Coping Configuration files to Elastic Search server
-  copy: 
-   src: files/elasticsearch.yml
-   dest: /etc/elasticsearch/elasticsearch.yml
-   follow: yes
+  template:
+    src: elasticsearch.yml.j2
+    dest: /etc/elasticsearch/elasticsearch.yml
    
 
  

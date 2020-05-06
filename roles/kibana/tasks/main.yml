@@ -14,10 +14,10 @@
 # Configurations
 
 - name: Updating the config file to allow outside access
-  copy:
-    src: files/kibana.yml
+  template:
+    src: kibana.yml.j2
     dest: /etc/kibana/kibana.yml
-    follow: yes
+    
 
 # Starting Kibana
 

@@ -1,10 +1,10 @@
 ---
 # tasks file for java
 
-# Installing Java 8
+# Installing recommended
 
-- name: Install Java 8
+- name: Install recommended java
   apt:
-   name: openjdk-8-jdk
+   name: "{{ java_package }}"
    state: present
    update_cache: yes
