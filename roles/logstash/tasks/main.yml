@@ -1,0 +1,35 @@
+---
+# tasks file for Logstash
+#
+- name: Add Logstash GPG key.
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch 
+    state: present
+
+- name: Add Logstash apt repository.
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+    state: present
+
+
+
+- name: Install Logstash.
+  apt:
+    name: logstash
+    state: present
+
+
+- name: Updating Logstash configuration
+  copy:
+     src: "{{ item }}"
+     dest: /etc/logstash/
+  with_items:
+      - files/logstash.conf
+      - files/logstash.yml
+     
+
+- name: Starting Logstash
+  service:
+    name: logstash
+    state: restarted
+

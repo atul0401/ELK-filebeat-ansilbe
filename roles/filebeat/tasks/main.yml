@@ -1,9 +1,11 @@
 ---
+# tasks file for Filebeat
 #
+# #
 # Installing Filebeat
 #
 
-# Install Filebeat 
+# Install Filebeat
 
 - name: Install Filebeat with apt
   apt:
@@ -12,7 +14,7 @@
 
 - name: Create filebeat config
   template:
-    src: filebeat.config.j2
+    src:  files/filebeat.yml  
     dest: /etc/filebeat/filebeat.yml
 
 
