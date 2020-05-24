@@ -1,0 +1,2 @@
+es_pass: "{{ vault_es_password }}"
+lg_pass: "{{ vault_lg_pass }}"
